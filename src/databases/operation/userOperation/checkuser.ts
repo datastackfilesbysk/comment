@@ -18,12 +18,12 @@ export async function checkUser(client: Client) {
     const res = await client.query(query, [username]); // Pass username as parameter
     if (res.rows.length > 0) {
       const user = res.rows[0];
-      vscode.window.showInformationMessage(
-        `User Found: ${user.github_username}`
-      );
+      // vscode.window.showInformationMessage(
+      //   `User Found: ${user.github_username}`
+      // );
       user_id = parseInt(user.id, 10); // Parse integer with base 10
     } else {
-      vscode.window.showInformationMessage("User not found.");
+      //vscode.window.showInformationMessage("User not found.");
     }
   } catch (err: any) {
     vscode.window.showErrorMessage(`Error querying database: ${err.message}`);
